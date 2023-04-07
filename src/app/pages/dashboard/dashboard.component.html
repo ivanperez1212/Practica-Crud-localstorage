@@ -1,0 +1,33 @@
+<div class="container pt-5">
+  <table class="table">
+    <thead class="thead-dark">
+      <h3>lista de Usuarios</h3>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Eliminar</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let user of listUsers">
+      <tr>
+        <th scope="row">{{user.id}}</th>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td><button type="button" class="btn btn-primary" (click)="delete(user.id)">
+        X
+        </button>
+        <div class="modal fade" #modalInfo tabindex="-1" role= "dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+          <div class="modal-dialog modal-md modal-dialog-centered align-items-start" role="document">
+            <div class="modal-content bg-full-size p-3"  style="background-image:url('assets/img/rewind/assets-figma-clean.png');" >
+            <div class="modal-body">
+                <p>Fue eliminado {{user.name}}</p>
+            </div>
+           </div>
+          </div>
+        </div></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
