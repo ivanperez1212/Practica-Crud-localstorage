@@ -72,13 +72,11 @@ export class AuthService {
 
   delete(idUser: number){
     var tablaUser = JSON.parse(localStorage.getItem("users") || "[]");
-     let index = tablaUser.findIndex((res: { id: any; }) => res.id === idUser);
-      if(index == -1){
-       index = 0
-      }
-      tablaUser[index] = idUser;
+    let index = tablaUser.findIndex((res: { id: any; }) => res.id === idUser);
+    if (index !== -1) {
+      tablaUser.splice(index, 1);
       localStorage.setItem('users', JSON.stringify(tablaUser));
-   
-     return of(idUser) 
+    } 
+    return of(idUser);
   }
 }
